@@ -61,6 +61,46 @@ public class DoublyLinkedList {
        }
     }
 
+    public void deleteFirst(){
+        if(head == null) throw new RuntimeException("Linked List is not created");
+        head = head.next;
+        size--;
+    }
+
+    public void deleteLast(){
+        if(tail == null) throw new RuntimeException("Linked List is not created");
+        tail = tail.prv;
+        tail.next = null;
+        size--;
+    }
+
+    public boolean delete(int n){
+        Node node = head;
+
+        if(head.data == n) {
+            deleteFirst();
+            return true;
+        } else if(tail.data == n){
+            deleteLast();
+            return true;
+        } else{
+
+            while(node != null){
+                if(node.data == n){
+                    // found the node
+                    Node prvNode = node.prv;
+                    Node next = node.next;
+
+                    prvNode.next = next;
+                    next.prv = prvNode;
+                    return true;
+                }
+                node = node.next;
+            }
+        }
+        return false;
+    }
+
     public void display(){
         Node node = head;
         while(node != null){
