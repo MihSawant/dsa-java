@@ -91,6 +91,54 @@ public class SinglyLinkedList {
        }
     }
 
+    public void deleteFirst(){
+        if(head == null) throw new RuntimeException("Linked List is not created");
+        head = head.next;
+        size--;
+    }
+
+
+    // Tail not deleting...
+    public void deleteLast(){
+        if(tail == null) throw new RuntimeException("Linked List is not created");
+        Node n = head;
+        Node prvNode = n;
+        while(n != tail){
+          prvNode = n;
+          n = n.next;
+        }
+        prvNode.next = null;
+        tail = prvNode;
+        size--;
+    }
+
+    public boolean delete(int data){
+        Node node = head;
+        Node prvNode = node;
+
+            if(node.data == data){
+                // the node is head
+                deleteFirst();
+                return true;
+            } else {
+                while(node != null) {
+                    if(node.data == data){
+                        prvNode.next = node.next;
+
+                        if(prvNode.next == null){
+                            tail = prvNode;
+                        }
+                        size--;
+                        return true;
+                    }
+                    prvNode = node;
+                    node = node.next;
+                }
+                return false;
+
+            }
+    }
+
     public void display(){
         Node node = head;
         while(node != null){

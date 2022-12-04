@@ -19,5 +19,20 @@ public class SinglyLinkedListMain {
      list.insertAfterNode(20, 25);
      list.display();
 
+     // Delete head
+     list.deleteFirst();
+     System.out.println("After deletion of head");
+     list.display();
+
+
+     System.out.println("Delete node 25");
+     list.delete(25);
+     list.display();
+
+     // Delete tail
+     list.deleteLast();
+     System.out.println("After deletion of tail");
+     list.display();
+
     }
 }
