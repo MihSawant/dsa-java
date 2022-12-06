@@ -67,6 +67,36 @@ public class Graph<T> {
         }
     }
 
+    public void dfs(T source){
+        Stack<T> stack = new Stack<>();
+        Set<T> visited = new HashSet<>();
+
+        stack.push(source);
+
+        while(!stack.isEmpty()){
+            // pop out that element
+            T node = stack.pop();
+
+            // mark the node visited if not
+            if(!visited.contains(node)){
+                visited.add(node);
+                // print it
+                System.out.println(node);
+            }
+
+                // now get all the neighbours and add them to stack
+                List<T> neighbours = adjacencyList.get(node);
+                if(neighbours != null){
+                    for(T neighbour : neighbours){
+                        if(!visited.contains(neighbour)) {
+                            stack.push(neighbour);
+                        }
+                    }
+                }
+            }
+
+    }
+
     public void printAdjacencyList(){
         adjacencyList.forEach((k, v) -> System.out.println("Node: "+k+"- "+"neighbours: "+v));
     }
