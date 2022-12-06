@@ -23,8 +23,12 @@ public class BinaryTreeMain {
         btree.insert('H');
         btree.insert('I');
 
+//
+//        btree.getTotalNodes();
+//        btree.preOrderTraversal();
 
-        btree.getTotalNodes();
-        btree.preOrderTraversal();
+        // deleting node I
+        btree.delete('F');
+       btree.preOrderTraversal();
     }
 }

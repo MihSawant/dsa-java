@@ -3,6 +3,7 @@ package tree.bin_tree;
 
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 public class BinaryTree<T> {
@@ -102,6 +103,29 @@ public class BinaryTree<T> {
           printPostOrder(node.left);
           printPostOrder(node.right);
             System.out.println(" "+node.element);
+        }
+    }
+
+    // trying to delete leaf node
+    public void delete(T element){
+        deleteNode(element, root);
+    }
+
+
+    // trying to delete leaf node
+    private void deleteNode(T element, Node node){
+        if(node != null){
+            if(node.element.equals(element)){
+                if(node.right == null && node.left == null){
+                    node = null;
+                    Runtime.getRuntime().gc();
+                    nodeCount--;
+                    return;
+                }
+            }
+            // first finding the node recursively
+            deleteNode(element, node.left);
+            deleteNode(element, node.right);
         }
     }
 }
