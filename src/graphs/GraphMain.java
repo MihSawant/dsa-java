@@ -23,7 +23,8 @@ public class GraphMain {
         graph.addEdge("H", "I");
         graph.addEdge("H", "E");
 
-        graph.printAdjacencyList();
+//        graph.printAdjacencyList();
+        graph.bfs("A");
     }
 
 }
