@@ -10,11 +10,16 @@ public class BinTreeMain {
         bst.insert(20);
         bst.insert(2);
 
-        System.out.println("Inorder Traversal:");
-        bst.printInOrder();
-        System.out.println("Preorder traversal:");
-        bst.printPreOrder();
-        System.out.println("Postorder traversal:");
-        bst.printPostOrder();
+//        System.out.println("Inorder Traversal:");
+//        bst.printInOrder();
+//        System.out.println("Preorder traversal:");
+//        bst.printPreOrder();
+//        System.out.println("Postorder traversal:");
+//        bst.printPostOrder();
+
+        // search for a node
+        bst.search(2);
+        bst.search(3);
+        bst.search(15);
     }
 }

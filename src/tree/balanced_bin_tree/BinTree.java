@@ -77,4 +77,21 @@ public class BinTree<T extends Comparable<T>> {
             System.out.println(" "+node.element);
         }
     }
+
+    public void search(T element){
+      searchNode(element, root);
+    }
+
+    public void searchNode(T element, Node node){
+
+        if(node != null){
+            if (node.element.compareTo(element) == 0) {
+                System.out.println("Found");
+            }
+            // search in left subtree
+            searchNode(element, node.left);
+            // search in right subtree
+            searchNode(element, node.right);
+            }
+        }
 }
